@@ -14,11 +14,14 @@ for($i = 0; $i < $length - 1; $i++){
 return $str;
 }
 
+$rep;
+
+do{
 
 echo("Меню:\n");
-echo("1. XXXX \n");
-echo("2. XXXX \n");
-echo("3. XXXX \n");
+echo("1. Сортировка \n");
+echo("2. Идеальное число \n");
+echo("3. Поиск \n");
 $choice = readline(":> ");
 
 switch ($choice){
@@ -28,7 +31,7 @@ switch ($choice){
 
         $sort = alphabeticalOrde($str);
         $output = implode("", $sort); 
-        echo ("output: " . $output);
+        echo ("output: " . $output . "\n");
         
         break;
     case 2:
@@ -38,4 +41,10 @@ switch ($choice){
 
         break;
 }
+
+echo("Хотите повторить выполнение прграммы?\n");
+echo("Y/N\n");
+$rep = readline(":> ");
+
+}while($rep == 'Y' || $rep == 'y');
 
