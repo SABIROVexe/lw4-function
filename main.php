@@ -14,6 +14,60 @@ for($i = 0; $i < $length - 1; $i++){
 return $str;
 }
 
+function perfect_number(){
+    while (true) {
+    echo ("Введите элемент массива (stop для остановки ввода): ");
+    $input = readline(":> ");
+
+    if ($input === 'stop') {
+        break; 
+    }
+
+ 
+    if (is_numeric($input)) {
+        $array[] = (int)$input; 
+    } else {
+        echo ("Пожалуйста, введите числовое значение.\n");
+    }
+}
+
+
+echo ("Введенные числа: " . implode(", ", $array) . "\n");
+echo ("Введите число для поиска делителей: ");
+$number = (int)readline(":> ");
+
+
+if (in_array($number, $array)) {
+    
+    for ($i = 1; $i < $number; $i++) { 
+        if ($number % $i == 0) {
+            $arr[] = $i; 
+        }
+    }
+
+    // Вывод делителей
+    echo ("Делители числа $number: ");
+    echo implode(" ", $arr) . "\n"; 
+
+    // Вычисление суммы делителей
+    for($i = 0; $i < count($arr); $i++){
+        $sum += $arr[$i];
+    }
+
+    echo "Сумма делителей: " . $sum . "\n";
+    if($sum == $number){
+        echo ("число является идеальным\n");
+    }
+    else{
+         echo ("число не является идеальным\n");
+    }
+} 
+}
+
+
+$array = [];
+$arr = []; 
+$sum = 0; 
 $rep;
 
 do{
@@ -34,9 +88,12 @@ switch ($choice){
         echo ("output: " . $output . "\n");
         
         break;
+
     case 2:
 
+        perfect_number();
         break;
+
     case 3: 
 
         break;
